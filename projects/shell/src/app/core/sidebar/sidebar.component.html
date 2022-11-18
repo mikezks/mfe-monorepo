@@ -25,31 +25,17 @@
     </li>
 
     <li routerLinkActive="active">
-      <a>
+      <a routerLink="/passenger">
         <i class="nc-icon nc-single-02"></i>
         <p>Passengers</p>
       </a>
     </li>
 
     <li routerLinkActive="active">
-      <a>
+      <a [routerLink]="[{ outlets: { primary: ['booking'], booking: ['']}}]">
         <i class="nc-icon nc-tag-content"></i>
         <p>Bookings</p>
       </a>
     </li>
-
-    <!-- <li routerLinkActive="active">
-      <a>
-        <i class="nc-icon nc-cart-simple"></i>
-        <p>Basket</p>
-      </a>
-    </li>
-
-    <li routerLinkActive="active">
-      <a>
-        <i class="nc-icon nc-simple-remove"></i>
-        <p>Hide Basket</p>
-      </a>
-    </li> -->
   </ul>
 </div>

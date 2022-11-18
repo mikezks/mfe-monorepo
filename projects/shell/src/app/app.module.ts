@@ -1,3 +1,4 @@
+import { MicroAppRoutingModule } from '@angular-architects/microapp';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +10,8 @@ import { CoreModule } from './core/core.module';
    imports: [
       BrowserModule,
       AppRoutingModule,
-      CoreModule
+      CoreModule,
+      MicroAppRoutingModule.forShell({ name: 'shell' })
    ],
    declarations: [
       AppComponent

@@ -18,7 +18,7 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/shell",
 						"index": "projects/shell/src/index.html",
@@ -35,7 +35,9 @@
 							"node_modules/@angular-architects/paper-design/assets/scss/paper-dashboard.scss",
 							"projects/shell/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [],
+						"extraWebpackConfig": "projects/shell/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -57,7 +59,8 @@
 									"with": "projects/shell/src/environments/environment.prod.ts"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/shell/webpack.prod.config.js"
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -71,21 +74,28 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "shell:build:production"
+							"browserTarget": "shell:build:production",
+							"extraWebpackConfig": "projects/shell/webpack.prod.config.js"
 						},
 						"development": {
 							"browserTarget": "shell:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/shell/webpack.config.js"
+					}
 				},
 				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"builder": "ngx-build-plus:extract-i18n",
 					"options": {
-						"browserTarget": "shell:build"
+						"browserTarget": "shell:build",
+						"extraWebpackConfig": "projects/shell/webpack.config.js"
 					}
 				},
 				"test": {
@@ -120,7 +130,7 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/mfe-passenger",
 						"index": "projects/mfe-passenger/src/index.html",
@@ -137,7 +147,9 @@
 							"node_modules/@angular-architects/paper-design/assets/scss/paper-dashboard.scss",
 							"projects/mfe-passenger/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [],
+						"extraWebpackConfig": "projects/mfe-passenger/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -159,7 +171,8 @@
 									"with": "projects/mfe-passenger/src/environments/environment.prod.ts"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mfe-passenger/webpack.prod.config.js"
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -173,13 +186,16 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "port": 4300
-          },
+					"builder": "ngx-build-plus:dev-server",
+					"options": {
+						"port": 4300,
+						"publicHost": "http://localhost:4300",
+						"extraWebpackConfig": "projects/mfe-passenger/webpack.config.js"
+					},
 					"configurations": {
 						"production": {
-							"browserTarget": "mfe-passenger:build:production"
+							"browserTarget": "mfe-passenger:build:production",
+							"extraWebpackConfig": "projects/mfe-passenger/webpack.prod.config.js"
 						},
 						"development": {
 							"browserTarget": "mfe-passenger:build:development"
@@ -188,9 +204,10 @@
 					"defaultConfiguration": "development"
 				},
 				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"builder": "ngx-build-plus:extract-i18n",
 					"options": {
-						"browserTarget": "mfe-passenger:build"
+						"browserTarget": "mfe-passenger:build",
+						"extraWebpackConfig": "projects/mfe-passenger/webpack.config.js"
 					}
 				},
 				"test": {

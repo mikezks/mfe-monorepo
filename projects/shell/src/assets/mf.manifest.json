@@ -1,0 +1,4 @@
+{
+	"mfePassenger": "http://localhost:4300/remoteEntry.js",
+	"mfeBooking": "http://localhost:4400/remoteEntry.js"
+}

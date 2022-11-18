@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit, VERSION } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { FlightService } from "../../logic";
 import { FlightCardComponent } from "../../ui";
@@ -15,6 +15,7 @@ import { FlightCardComponent } from "../../ui";
   templateUrl: './flight-search.component.html'
 })
 export class FlightSearchComponent {
+  ngVersion = VERSION.full;
 
   from = 'Hamburg'; // in Germany
   to = 'Graz'; // in Austria
